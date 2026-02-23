@@ -313,6 +313,13 @@ footer {
   border-top: 1px solid var(--border);
   width: 100%;
 }
+.footer-badges {
+  margin-bottom: 0.8rem;
+}
+.ci-badge {
+  height: 22px;
+  border-radius: 4px;
+}
 
 /* ── RESPONSIVE ───────────────────────────────────────── */
 @media (max-width: 640px) {

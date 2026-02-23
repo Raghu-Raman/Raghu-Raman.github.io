@@ -1,0 +1,89 @@
+# ─────────────────────────────────────────────────────────────────
+#  CI/CD Pipeline — Raghuraman Venkatesh · GitHub Pages
+#
+#  What this does (in order):
+#    1. TRIGGER  — runs every time you push to the main branch
+#    2. CHECKOUT — downloads your code onto the build server
+#    3. VALIDATE — checks your HTML for broken tags / bad structure
+#    4. DEPLOY   — publishes the site to GitHub Pages
+# ─────────────────────────────────────────────────────────────────
+
+name: CI / Deploy to GitHub Pages
+
+# ── TRIGGER ────────────────────────────────────────────────────
+# Run this pipeline when:
+#   • you push commits to main
+#   • you manually click "Run workflow" in the GitHub UI
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:            # allows manual trigger from GitHub UI
+
+# ── PERMISSIONS ────────────────────────────────────────────────
+# GitHub Pages needs write access to publish your site
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# ── CONCURRENCY ────────────────────────────────────────────────
+# If two pushes happen at once, cancel the older run
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+# ─────────────────────────────────────────────────────────────────
+#  JOBS — each job runs on a fresh Ubuntu virtual machine
+# ─────────────────────────────────────────────────────────────────
+jobs:
+
+  # ── JOB 1: VALIDATE ──────────────────────────────────────────
+  # Catches broken HTML before it ever reaches your live site
+  validate:
+    name: Validate HTML
+    runs-on: ubuntu-latest        # fresh Linux VM
+    steps:
+
+      # Step 1 — Download your repo onto the build machine
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2 — Install the HTML validator
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      # Step 3 — Run the validator against your index.html
+      #          If it finds errors, the pipeline stops here (deploy is skipped)
+      - name: Validate index.html
+        run: html-validate index.html --config='{"extends":["html-validate:recommended"],"rules":{"no-trailing-whitespace":"off","long-lines":"off"}}'
+
+  # ── JOB 2: DEPLOY ────────────────────────────────────────────
+  # Only runs if the validate job above passed
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: validate               # ← waits for validate to succeed
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}   # shows live URL in GitHub UI
+
+    steps:
+
+      # Step 1 — Download your code again (each job gets a clean machine)
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2 — Configure GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Step 3 — Package all files in this folder for deployment
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'               # upload everything in the profile/ folder
+
+      # Step 4 — Publish to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
