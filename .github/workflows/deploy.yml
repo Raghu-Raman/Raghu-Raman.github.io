@@ -55,7 +55,7 @@ jobs:
       # Step 3 — Run the validator against your index.html
       #          If it finds errors, the pipeline stops here (deploy is skipped)
       - name: Validate index.html
-        run: html-validate index.html --config='{"extends":["html-validate:recommended"],"rules":{"no-trailing-whitespace":"off","long-lines":"off"}}'
+        run: html-validate index.html
 
   # ── JOB 2: DEPLOY ────────────────────────────────────────────
   # Only runs if the validate job above passed
