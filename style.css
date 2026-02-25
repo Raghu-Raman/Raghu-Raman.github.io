@@ -327,9 +327,7 @@ section {
   padding: 1.1rem 1.4rem;
   text-align: center;
   min-width: 100px;
-  transition: border-color 0.2s, transform 0.2s;
 }
-.hobby:hover { border-color: var(--accent); transform: translateY(-2px); }
 .hobby-icon { font-size: 1.8rem; margin-bottom: 0.35rem; }
 .hobby p { font-size: 0.82rem; color: var(--muted); }
 
