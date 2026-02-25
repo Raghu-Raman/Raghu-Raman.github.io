@@ -1,0 +1,386 @@
+/* ─────────────────────────────────────────────────────────
+   PROJECTS PAGE — Raghuraman Venkatesh
+   Sister page of profile/index.html — shares theme variables.
+───────────────────────────────────────────────────────── */
+
+/* ── LIGHT MODE ───────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --bg:          #ffffff;
+  --bg2:         #f7f7f8;
+  --surface:     #f0f0f2;
+  --border:      #e2e2e6;
+  --accent:      #2563eb;
+  --accent-h:    #1d4ed8;
+  --text:        #111115;
+  --muted:       #6b7280;
+  --font:        'Inter', sans-serif;
+  --mono:        'Space Mono', monospace;
+  --radius:      10px;
+  --max-w:       1020px;
+  --nav-bg:      rgba(255,255,255,0.88);
+
+  /* football section */
+  --pitch-bg:    #f0faf0;
+  --pitch-line:  rgba(0,0,0,0.07);
+  --green:       #16a34a;
+  --green-dim:   #dcfce7;
+  --green-text:  #15803d;
+}
+
+/* ── DARK MODE ────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:          #0f1117;
+  --bg2:         #161b27;
+  --surface:     #1e2433;
+  --border:      #2a3145;
+  --accent:      #60a5fa;
+  --accent-h:    #93c5fd;
+  --text:        #e8eaf0;
+  --muted:       #8b95b0;
+  --nav-bg:      rgba(15,17,23,0.88);
+
+  --pitch-bg:    #0d1f10;
+  --pitch-line:  rgba(255,255,255,0.06);
+  --green:       #4ade80;
+  --green-dim:   #052e16;
+  --green-text:  #86efac;
+}
+
+/* ── RESET ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  transition: background 0.25s, color 0.25s;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── NAV ──────────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 58px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-back {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: opacity 0.18s;
+}
+.nav-back:hover { opacity: 0.75; text-decoration: none; }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
+.nav-links a {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* ── THEME TOGGLE ─────────────────────────────────────── */
+#theme-toggle {
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background 0.18s, color 0.18s;
+}
+#theme-toggle:hover { background: var(--border); color: var(--text); }
+[data-theme="light"] .icon-moon { display: none; }
+[data-theme="dark"]  .icon-sun  { display: none; }
+
+/* ── PAGE HERO ────────────────────────────────────────── */
+.page-hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem 2rem 3.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.page-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.hero-sub {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 520px;
+  line-height: 1.75;
+}
+
+/* ── LAYOUT ───────────────────────────────────────────── */
+main { display: flex; flex-direction: column; }
+
+section {
+  padding: 4.5rem 2rem;
+  position: relative;
+}
+section:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header {
+  max-width: var(--max-w);
+  margin: 0 auto 2.5rem;
+}
+.section-badge {
+  display: inline-block;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 99px;
+  padding: 0.2rem 0.75rem;
+  margin-bottom: 0.9rem;
+}
+.ml-badge {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+[data-theme="dark"] .ml-badge {
+  background: #1e3a5f;
+  color: #93c5fd;
+  border-color: #2a5080;
+}
+.football-badge {
+  background: var(--green-dim);
+  color: var(--green-text);
+  border: 1px solid #bbf7d0;
+}
+[data-theme="dark"] .football-badge {
+  border-color: #166534;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 0.93rem;
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ── EMPTY STATE ──────────────────────────────────────── */
+.empty-state {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3.5rem 2rem;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+}
+.empty-icon { font-size: 2rem; }
+.empty-state p { font-size: 0.88rem; }
+
+/* ── PROJECT GRID ─────────────────────────────────────── */
+.project-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+}
+
+/* ── PROJECT CARD ─────────────────────────────────────── */
+.project-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+}
+.football-card:hover {
+  border-color: var(--green);
+  box-shadow: 0 8px 28px rgba(22,163,74,0.08);
+}
+
+/* card top row: number + links */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+.card-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.card-links {
+  display: flex;
+  gap: 0.5rem;
+}
+.card-links a {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.18s;
+}
+.card-links a:hover { color: var(--accent); text-decoration: none; }
+.football-card .card-links a:hover { color: var(--green); }
+
+.project-card h3 {
+  font-size: 0.97rem;
+  font-weight: 650;
+  line-height: 1.4;
+  color: var(--text);
+}
+.project-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.75;
+  flex: 1;
+}
+
+/* ── TAGS ─────────────────────────────────────────────── */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+.tag {
+  font-size: 0.73rem;
+  font-weight: 500;
+  padding: 0.18rem 0.6rem;
+  border-radius: 99px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.tag-green {
+  background: var(--green-dim);
+  border-color: #bbf7d0;
+  color: var(--green-text);
+}
+[data-theme="dark"] .tag-green {
+  border-color: #166534;
+}
+
+/* ── FOOTBALL SECTION PITCH DECORATION ───────────────── */
+#football {
+  background: var(--pitch-bg);
+  overflow: hidden;
+}
+.pitch-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.pitch-line {
+  position: absolute;
+  border: 2px solid var(--pitch-line);
+}
+.pitch-halfway {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 2px solid var(--pitch-line);
+  transform: none;
+}
+.pitch-center-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pitch-penalty-l {
+  left: 6%;
+  top: 20%;
+  width: 10%;
+  height: 60%;
+  border-radius: 0 8px 8px 0;
+}
+.pitch-penalty-r {
+  right: 6%;
+  top: 20%;
+  width: 10%;
+  height: 60%;
+  border-radius: 8px 0 0 8px;
+}
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+}
+footer a { color: var(--accent); }
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .page-hero { padding: 3.5rem 1.2rem 2.5rem; }
+  section { padding: 3rem 1.2rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  nav { padding: 0 1.2rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.78rem; }
+}

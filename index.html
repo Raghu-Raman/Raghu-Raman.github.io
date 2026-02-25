@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <title>Raghuraman Venkatesh</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="style.css">
@@ -17,74 +17,54 @@
     <!-- ─── NAV ────────────────────────────────────────────────── -->
     <nav>
       <span class="nav-name">RV</span>
-      <ul>
+      <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#resume">Resume</a></li>
         <li><a href="#hobbies">Hobbies</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="projects/index.html" class="nav-projects">Projects ↗</a></li>
       </ul>
+      <button type="button" id="theme-toggle" aria-label="Toggle light / dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </nav>
 
     <!-- ─── HERO ───────────────────────────────────────────────── -->
     <header id="about">
       <div class="hero-inner">
-        <!-- Replace src with your actual photo -->
-        <img
-          src="https://via.placeholder.com/160x160"
-          alt="Raghuraman Venkatesh"
-          class="avatar"
-        >
+
+        <!-- LEFT: introduction -->
         <div class="hero-text">
-          <h1>Raghuraman <span class="accent">Venkatesh</span></h1>
-          <p class="tagline">
-            ML Engineer · Researcher · Builder
-          </p>
+          <p class="hero-eyebrow">Hello, I'm</p>
+          <h1>Raghuraman<br><span class="accent">Venkatesh</span></h1>
+          <p class="tagline">ML Engineer · Researcher · Builder</p>
           <p class="bio">
-            Hi! I'm Raghuraman — a computer scientist passionate about machine learning,
-            deep learning research, and building tools that make AI more interpretable and 
-            accessible. I graduated from UIC and love turning research ideas into working systems. 
-            I try to learn more about ML and constantly update my knowledge.Feel free to text me on LinkedIn.
-            Also, YANITED YANITED YANITED.
+            A computer scientist passionate about machine learning, deep learning research,
+            and building tools that make AI more interpretable and accessible.
+            I graduated from UIC and love turning research ideas into working systems.
           </p>
           <div class="hero-links">
             <a href="mailto:rvenka26@uic.edu" class="btn">Email me</a>
-            <a
-              href="https://www.linkedin.com/in/raghuraman-v-96905013a/"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-outline"
-            >LinkedIn</a>
-            <!-- Add your GitHub link below -->
+            <a href="https://www.linkedin.com/in/raghuraman-v-96905013a/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
             <a href="https://github.com/Raghu-Raman" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
           </div>
         </div>
+
+        <!-- RIGHT: photo -->
+        <div class="hero-photo-wrap">
+          <img
+            src="Profile picture.jpeg"
+            alt="Raghuraman Venkatesh"
+            class="avatar"
+          >
+        </div>
+
       </div>
     </header>
 
     <main>
-
-      <!-- ─── INTERESTS ─────────────────────────────────────────── -->
-      <section id="interests">
-        <h2 class="section-title">Interests</h2>
-        <div class="card-grid">
-          <div class="card">
-            <div class="card-icon">🧠</div>
-            <h3>Machine Learning</h3>
-            <p>Transformers, vision models, efficient training, mechanistic interpretability.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">🔬</div>
-            <h3>Research implementations</h3>
-            <p>Reading papers, reproducing blocks, and pushing ideas into implementation.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">🛠️</div>
-            <h3>Software Engineering</h3>
-            <p>Building clean, scalable systems — from backend APIs to interactive frontends.</p>
-          </div>
-        </div>
-      </section>
 
       <!-- ─── WORK / EXPERIENCE ─────────────────────────────────── -->
       <section id="work">
@@ -96,7 +76,7 @@
             <div class="timeline-content">
               <span class="timeline-date">Dec 2024 – Present · Dallas, Texas</span>
               <h3>Software Engineer II, AI R&amp;D — Abbott Neuromodulation</h3>
-              <p>Engineered deep learning vision algorithms to compute 3D Human Pose Estimation from monocular monitored videos, collaborating with physicians to translate clinical observations of pain-induced movement into structured 3D data frameworks for quantitative biomarker development. Conducted comprehensive statistical analysis — t-tests, correlation coefficients, and longitudinal methods — to identify significant patterns in patient outcomes. Utilized 3D motion capture to characterize movement dynamics across amplitude, frequency, symmetry, and consistency dimensions. Deployed and managed AI models on GCP via Cloud Storage, AI Platform, and Cloud Run for on-demand and scheduled inference pipelines.</p>
+              <p>Engineered deep learning vision algorithms for 3D Human Pose Estimation from monocular video, collaborating with physicians to translate clinical observations into structured 3D data frameworks. Deployed and managed AI models on GCP via Cloud Storage, AI Platform, and Cloud Run.</p>
             </div>
           </div>
 
@@ -105,7 +85,7 @@
             <div class="timeline-content">
               <span class="timeline-date">June 2024 – Nov 2024 · San Francisco, CA</span>
               <h3>AI Engineer — CHIMA</h3>
-              <p>Built a Retrieval-Augmented Generation (RAG) system using LangChain and Pinecone to process CSV/Excel files, enabling semantic understanding and enhanced summaries across internal, hybrid, and external queries. Optimized an Intelligent News Retrieval System by integrating Pinecone for semantic search and LangChain for orchestration, cutting runtime from 4 minutes to under 2 minutes. Also developed an AI-powered market research system combining Exa Search, a LangChain RAG pipeline, and Pinecone to generate insights and visual reports from external market and internal company data.</p>
+              <p>Built a RAG system using LangChain and Pinecone to process CSV/Excel files, enabling semantic understanding across internal and external queries. Optimised an Intelligent News Retrieval System, cutting runtime from 4 minutes to under 2 minutes.</p>
             </div>
           </div>
 
@@ -123,27 +103,11 @@
             <div class="timeline-content">
               <span class="timeline-date">Jan 2023 – June 2024 · Chicago, IL</span>
               <h3>Computer Vision Research Assistant — Motorola Mobility &amp; UIC</h3>
-              <p>Redesigned the model architecture for on-device inference using quantization and pruning, reducing computational latency by 62% on mobile hardware while maintaining output fidelity. Optimized the memory footprint of an exposure fusion and low-light enhancement TFLite model from 2.5 GB to 1.4 GB (a 44% decrease). Innovated on data augmentation by creating 64 state-of-the-art blurs mimicking human hand-held motion, with directional blurs across exposure levels that reduced noise, figments, and artifacts. Conducted a large-scale ablation study on loss functions (SSIM, GAN, MS-SSIM, Fourier, Perceptual), ultimately achieving a 34% improvement on BRISQUE and 18% on NIQE for state-of-the-art image quality.</p>
+              <p>Redesigned model architecture using quantisation and pruning, reducing latency by 62% on mobile. Optimised a TFLite model from 2.5 GB → 1.4 GB. Achieved a 34% improvement on BRISQUE and 18% on NIQE.</p>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2024 – Present</span>
-              <h3>M.S. Computer Science — UIC</h3>
-              <p>Focus on machine learning and NLP. Coursework spans deep learning systems, algorithms, and data science.</p>
-            </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2019 – 2023</span>
-              <h3>Bachelor's in Computer Science</h3>
-              <p>Graduated with a degree in CS/Engineering. Deep exposure to algorithms, systems, and applied mathematics. Final year project in deep learning.</p>
-            </div>
-          </div>
 
         </div>
       </section>
@@ -156,32 +120,18 @@
           <div class="resume-col">
             <h3>Skills</h3>
             <ul class="tag-list">
-              <li>Python</li>
-              <li>PyTorch</li>
-              <li>TensorFlow</li>
-              <li>React</li>
-              <li>JavaScript</li>
-              <li>C++</li>
-              <li>Java</li>
-              <li>SQL</li>
-              <li>AWS</li>
-              <li>Git</li>
-              <li>Docker</li>
-              <li>Linux</li>
+              <li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>React</li>
+              <li>JavaScript</li><li>C++</li><li>Java</li><li>SQL</li>
+              <li>AWS</li><li>GCP</li><li>Docker</li><li>Linux</li>
             </ul>
           </div>
 
           <div class="resume-col">
             <h3>Tools &amp; Frameworks</h3>
             <ul class="tag-list">
-              <li>HuggingFace</li>
-              <li>NumPy</li>
-              <li>Pandas</li>
-              <li>scikit-learn</li>
-              <li>Vite</li>
-              <li>Node.js</li>
-              <li>REST APIs</li>
-              <li>Jupyter</li>
+              <li>HuggingFace</li><li>NumPy</li><li>Pandas</li><li>scikit-learn</li>
+              <li>LangChain</li><li>Pinecone</li><li>Vite</li><li>Node.js</li>
+              <li>REST APIs</li><li>Jupyter</li>
             </ul>
           </div>
 
@@ -189,11 +139,11 @@
             <h3>Education</h3>
             <ul class="resume-list">
               <li>
-                <strong>M.S. Computer Science</strong><br>
-                University of Illinois, 2022–2024
+                <strong>M.S. Computer Science</strong>
+                University of Illinois Chicago, 2022–2024
               </li>
               <li>
-                <strong>B.E. / B.Tech Computer Science</strong><br>
+                <strong>B.E. Computer Science</strong>
                 SSN College of Engineering, 2018–2022
               </li>
             </ul>
@@ -202,8 +152,7 @@
         </div>
 
         <div class="resume-download">
-          <!-- Link your actual resume PDF here -->
-          <a href="Raghuraman Resume .pdf" class="btn" download>Download Full Resume (PDF)</a>
+          <a href="Raghuraman Resume .pdf" class="btn" download>Download Resume (PDF)</a>
         </div>
       </section>
 
@@ -211,31 +160,12 @@
       <section id="hobbies">
         <h2 class="section-title">Hobbies</h2>
         <div class="hobbies-grid">
-          <div class="hobby">
-            <span class="hobby-icon">♟️</span>
-            <p>Chess</p>
-          </div>
-          <div class="hobby">
-            <span class="hobby-icon">📚</span>
-            <p>Reading</p>
-          </div>
-          <div class="hobby">
-            <span class="hobby-icon">✈️</span>
-            <p>Traveling</p>
-          </div>
-          <div class="hobby">
-            <span class="hobby-icon">✍️</span>
-            <p>Tech Blogging</p>
-          </div>
-          <div class="hobby">
-            <span class="hobby-icon">🎵</span>
-            <p>Music</p>
-          </div>
-          <div class="hobby">
-            <span class="hobby-icon">🏃</span>
-            <p>Running</p>
-          </div>
-          <!-- Add / remove hobbies freely -->
+          <div class="hobby"><span class="hobby-icon">♟️</span><p>Chess</p></div>
+          <div class="hobby"><span class="hobby-icon">📚</span><p>Reading</p></div>
+          <div class="hobby"><span class="hobby-icon">✈️</span><p>Traveling</p></div>
+          <div class="hobby"><span class="hobby-icon">✍️</span><p>Tech Blogging</p></div>
+          <div class="hobby"><span class="hobby-icon">🎵</span><p>Music</p></div>
+          <div class="hobby"><span class="hobby-icon">🏃</span><p>Running</p></div>
         </div>
       </section>
 
@@ -246,10 +176,9 @@
           <p>I'm always open to interesting conversations — research collabs, job opportunities, or just saying hi.</p>
           <div class="contact-links">
             <a href="mailto:rvenka26@uic.edu">rvenka26@uic.edu</a>
-            <span>·</span>
+            <span class="dot">·</span>
             <a href="https://www.linkedin.com/in/raghuraman-v-96905013a" target="_blank" rel="noopener">LinkedIn</a>
-            <span>·</span>
-            <!-- Add your GitHub below -->
+            <span class="dot">·</span>
             <a href="https://www.github.com/Raghu-Raman" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
@@ -268,8 +197,21 @@
           >
         </a>
       </div>
-      <p>© 2026 Raghuraman Venkatesh · Built with HTML &amp; CSS · Deployed via GitHub Actions</p>
+      <p>© 2026 Raghuraman Venkatesh · Built with HTML &amp; CSS</p>
     </footer>
+
+    <!-- ─── THEME TOGGLE SCRIPT ──────────────────────────────────── -->
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      const root   = document.documentElement;
+      const saved  = localStorage.getItem('theme') || 'light';
+      root.setAttribute('data-theme', saved);
+      toggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    </script>
 
   </body>
 </html>
